@@ -1,0 +1,619 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: FuturaStdBold;
+  src: url(FuturaStdBold.woff);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: FuturaStd-Light;
+  src: url(FuturaStd-Light.woff);
+}
+
+@font-face {
+  font-family: FuturaStdLight-O;
+  src: url(FuturaStdLightOblique.woff);
+}
+
+@font-face {
+  font-family: CaslonGraphiqueEF;
+  src: url(CaslonGraphiqueEF.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
+  background-color: white;
+}
+
+header nav {
+  height: 6em;
+  background-color: white;
+  border-bottom: 0.1em solid whitesmoke;
+}
+
+header nav ul:first-of-type {
+  display: none;
+}
+
+header nav ul:nth-of-type(2) {
+  display: none;
+}
+
+.tekst {
+  position: absolute;
+  top: 32%;
+  left: 7%;
+  transform: translate(-50%, -50%);
+  font-family: FuturaStdBold;
+  font-size: 13px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: red;
+  -webkit-text-stroke: .5px #FF81CB;
+}
+
+.lijn {
+  height: 17px;
+  overflow: hidden;
+  position: relative;
+}
+
+.lijn p {
+  margin: 0;
+  height: 17px;
+  line-height: 15px;
+  transition: all 0.5s ease-in-out;
+}
+
+.lijn:nth-child(odd) {
+  transform: skew(60deg, -30deg) scaleY(0.667);
+}
+
+.lijn:nth-child(even) {
+  transform: skew(0deg, -33deg) scaleY(1.333);
+}
+
+.lijn:nth-child(1) {
+  left: 13px;
+}
+
+.lijn:nth-child(2) {
+  left: 32px;
+}
+
+.lijn:nth-child(3) {
+  left: 51px;
+}
+
+.lijn:nth-child(4) {
+  left: 70px;
+}
+
+.lijn:nth-child(5) {
+  left: 89px;
+}
+
+.tekst p {
+  animation-timing-function: cubic-bezier(.32, 2, .55, .27);
+  animation: text-anim 4s infinite;
+}
+
+@keyframes text-anim {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(0, -17.6px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+header nav button {
+  height: 2em;
+  width: 2em;
+  display: block;
+  background-color: white;
+  position: absolute;
+  right: 2em;
+  border: none;
+  outline: none;
+  top: 2em;
+}
+
+header nav button:hover {
+  cursor: pointer;
+}
+
+header nav button:focus {
+  background-color: white;
+}
+
+header nav span {
+  height: 0.1em;
+  width: 2em;
+  display: block;
+  background-color: black;
+  position: relative;
+}
+
+header nav span:first-of-type {
+  bottom: .5em;
+}
+
+header nav span:nth-of-type(2) {
+  height: 0.1em;
+  bottom: 0;
+}
+
+header nav span:last-of-type {
+  bottom: -.5em;
+}
+
+header ul:first-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style-type: none;
+  margin: 1em;
+}
+
+header ul:first-of-type li a {
+  margin: 0.2em;
+  color: black;
+  text-decoration: none;
+  font-family: FuturaStd-Light;
+  font-size: 0.8em;
+}
+
+header ul:first-of-type li a span:hover {
+  border-bottom: 0.17em solid #FF81CB;
+}
+
+header ul li a:focus {
+  background-color: white;
+}
+
+header nav ul:first-of-type.open {
+  display: flex;
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 6em;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  justify-content: center;
+  animation-name: menu;
+  animation-duration: .75s;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(.57, .22, .85, 1.25);
+}
+
+@keyframes menu {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-30px);
+  }
+
+  50% {
+    transform: translateX(40px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+header nav ul:first-of-type.open li {
+  display: block;
+  text-align: center;
+  padding: 0.7em;
+}
+
+header nav ul:first-of-type.open li a {
+  text-align: center;
+  color: #FF81CB;
+  font-family: FuturaStd-Light;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+}
+
+header nav ul:first-of-type.open li a:hover {
+  border-bottom: 0.17em solid #FF81CB;
+}
+
+button.verander span:first-of-type {
+  transform: rotateZ(45deg);
+  transform-origin: left;
+}
+
+button.verander span:nth-of-type(2) {
+  display: none;
+}
+
+button.verander span:last-of-type {
+  transform: rotateZ(-45deg) translateY(0.30em)translateX(-0.20em);
+  transform-origin: left;
+}
+
+#index section {
+  overflow: hidden;
+}
+
+main section a {
+  text-decoration: none;
+}
+
+main section a:focus {
+  background-color: white;
+}
+
+section:hover {
+  transition-duration: 1s;
+  cursor: pointer;
+}
+
+main section:first-of-type {
+  background-image: url("../images/wit.jpg");
+}
+
+main section:first-of-type:hover {
+  background-image: url("../images/reddot.jpg");
+  transition-duration: 1s;
+}
+
+main section h1 {
+  text-align: center;
+  font-family: CaslonGraphiqueEF;
+  font-size: 2.1em;
+  padding-top: 2.4em;
+}
+
+main section h2 {
+  text-align: center;
+  font-family: CaslonGraphiqueEF;
+  font-size: 2.1em;
+  padding-top: 2.4em;
+}
+
+main section:first-of-type h1 {
+  color: #FF81CB;
+}
+
+main section h2 {
+  color: black;
+}
+
+#index section h1:hover {
+  opacity: 0;
+  width: 100vw;
+  height: 28vh;
+  transition-duration: 1s;
+}
+
+#index section h2:hover {
+  opacity: 0;
+  width: 100vw;
+  height: 28vh;
+  transition-duration: 1s;
+}
+
+main section:last-of-type h2 {
+  color: white;
+}
+
+main section p {
+  text-align: center;
+  font-family: FuturaStd-Light;
+  font-size: 1.05em;
+  color: black;
+}
+
+main section:first-of-type p {
+  color: #FF81CB;
+}
+
+#index section p:hover {
+  opacity: 0;
+  width: 100vh;
+}
+
+main section:first-of-type {
+  color: #FF81CB;
+}
+
+main {
+  position: absolute;
+  top: 6em;
+}
+
+main section:nth-of-type(2) {
+  background-image: url("../images/dot.jpg");
+}
+
+main section:nth-of-type(2):hover {
+  background-image: url("../images/roze.png");
+}
+
+main section:nth-of-type(3) {
+  background-image: url("../images/stippen.jpg");
+}
+
+main section:nth-of-type(3):hover {
+  background-image: url("../images/kamer.jpg");
+}
+
+main section:last-of-type {
+  background-image: url("../images/strepen.jpg");
+}
+
+main section:last-of-type:hover {
+  background-image: url("../images/lopen.jpg");
+}
+
+main section {
+  display: block;
+  width: 100vw;
+  height: 29vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+footer section a:focus {
+  background-color: white;
+}
+
+footer section:first-of-type a {
+  display: block;
+  position: absolute;
+  bottom: -19.2em;
+  background-color: black;
+  z-index: 1;
+  width: 50%;
+  padding: 1em;
+  font-size: .7em;
+  font-family: FuturaStdBold;
+  color: white;
+  text-decoration: none;
+}
+
+footer section:nth-of-type(2) {
+  display: block;
+  position: absolute;
+  bottom: -13.4em;
+  background-color: white;
+  z-index: 1;
+  width: 50%;
+  padding: .5em;
+  right: 0;
+  overflow: hidden;
+}
+
+footer section p {
+  font-size: 1em;
+  font-family: FuturaStd-Light;
+  color: black;
+  text-decoration: none;
+  animation: moving-text-left 3s linear infinite;
+}
+
+@keyframes moving-text-left {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+footer ul {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-family: CaslonGraphiqueEF;
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  z-index: 2;
+}
+
+footer ul li {
+  display: block;
+  border-radius: 100%;
+  position: relative;
+  bottom: -2em;
+  right: -1em;
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+footer ul li:first-of-type {
+  background-color: black;
+  height: 5em;
+  width: 5em;
+  right: -1.9em;
+  bottom: -4em;
+}
+
+footer ul li:first-of-type:hover {
+  background-color: white;
+}
+
+footer ul li:first-of-type a {
+  color: white;
+}
+
+footer ul li:first-of-type a:hover {
+  color: black;
+}
+
+footer ul li:last-of-type {
+  background-color: white;
+  height: 7.5em;
+  width: 7.5em;
+}
+
+footer ul li:last-of-type:hover {
+  background-color: black;
+}
+
+footer ul li:last-of-type a {
+  color: red;
+}
+
+footer ul li a {
+  text-align: center;
+  margin: auto;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1em;
+  margin: 0 .5em;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1)
+  }
+
+  50% {
+    transform: scale(1.1)
+  }
+}
+
+#detailpagina {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #FF81CB, #D52341);
+  height: 130em;
+  background-size: 250% 250%;
+  animation: achtergrond 7s ease infinite;
+}
+
+@keyframes achtergrond {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+header #navdetail img {
+  margin-left: 43.5%;
+}
+
+header #navdetail span {
+  background-color: #FF81CB;
+}
+
+#detailmain {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+#detailmain section {
+  background: none;
+  height: 55em;
+}
+
+#detailmain section:nth-of-type(2) {
+  background: none;
+  height: 40em;
+}
+
+#detailmain section:nth-of-type(3) {
+  background: none;
+  height: 45em;
+}
+
+#detailmain section h1 {
+  color: white;
+  font-size: 1.8em;
+}
+
+#detailmain section h2 {
+  color: white;
+  font-size: 1.8em;
+}
+
+#detailmain section p {
+  color: white;
+  font-size: 1em;
+  font-family: FuturaStd-Light;
+  font-weight: bolder;
+  padding-top: 1em;
+}
+
+main section figure img {
+  width: 100vw;
+  height: 43vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: .5em 2em 0 2em;
+}
+
+main section figure figcaption {
+  color: white;
+  font-size: 1em;
+  text-align: left;
+  padding: .7em 2em 2em 2em;
+  font-family: FuturaStd-Light;
+  font-size: 1.1em;
+}
+
+#detailmain section a {
+  color: black;
+  font-family: FuturaStdBold;
+  font-weight: bolder;
+  font-size: 1em;
+  display: block;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#detailmain section a:hover {
+  text-decoration: none;
+}
+
+#detailfooter section:first-of-type a {
+  bottom: -260em;
+}
+
+#detailfooter section:nth-of-type(2) {
+  bottom: -182em;
+}
